@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Dario Agustin",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 157.55,
+      "left": 144,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 111.6,
+      "left": 234.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 195.8,
+      "left": 211.2,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -45.6,
+      "left": 172.8,
+      "attrs": { "mode": "smooth", "volume": "0.8" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:2", "r1:1", "green", [ "h28.8", "v9.6" ] ],
+    [ "r1:2", "led1:A", "green", [ "h18", "v-9.6" ] ],
+    [ "led1:C", "esp:GND.3", "black", [ "v38.4", "h-124.4", "v-9.6" ] ],
+    [ "btn1:2.l", "esp:4", "blue", [ "h-48", "v-67.2" ] ],
+    [ "btn1:1.l", "esp:GND.3", "black", [ "h-67.2", "v-9.6" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v28.8", "h-86.4" ] ],
+    [ "bz1:2", "esp:18", "red", [ "v86.4", "h-48" ] ]
+  ],
+  "dependencies": {}
+}
